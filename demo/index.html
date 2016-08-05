@@ -58,6 +58,10 @@
 			var num = $('#demo8').maskMoney('unmasked')[0];
 			alert('type: '+ typeof(num) + ', value: ' + num)
 		</pre>
+
+		<input type="text" id="demo9" />
+		<script type="text/javascript">$("#demo9").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: true, affixesThousands: false});</script>
+		<pre class="brush: js">$("#demo9").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: true, affixesThousands: false});</pre>
 	</body>
 	<script type="text/javascript">
 		SyntaxHighlighter.all()

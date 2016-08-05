@@ -54,6 +54,7 @@
                 prefix: "",
                 suffix: "",
                 affixesStay: true,
+                affixesThousands: true,
                 thousands: ",",
                 decimal: ".",
                 precision: 2,
@@ -359,6 +360,15 @@
                         if (!settings.affixesStay) {
                             var newValue = $input.val().replace(settings.prefix, "").replace(settings.suffix, "");
                             $input.val(newValue);
+                        }
+                        if (!settings.affixesThousands) {
+                          if(settings.thousands === '.') {
+                            var regex = /\./g
+                          }else {
+                            var regex = /settings.thousands/g
+                          }
+                          var newValue = $input.val().replace(regex, "");
+                          $input.val(newValue);
                         }
                     }
                     if ($input.val() !== onFocusValue) {
