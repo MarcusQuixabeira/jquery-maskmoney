@@ -193,8 +193,13 @@
 
                 function mask() {
                     var value = $input.val();
+
+                    if(settings.fixToRailsDecimal) {
+                      value = value.replace('.', ',');
+                    }
+
                     if (settings.precision > 0 && value.indexOf(settings.decimal) < 0) {
-                        value += settings.decimal + new Array(settings.precision+1).join(0);
+                      value += settings.decimal + new Array(settings.precision+1).join(0);
                     }
                     $input.val(maskValue(value));
                 }
