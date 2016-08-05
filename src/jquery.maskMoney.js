@@ -54,7 +54,7 @@
                 prefix: "",
                 suffix: "",
                 affixesStay: true,
-                affixesThousands: true,
+                fixToRailsDecimal: false,
                 thousands: ",",
                 decimal: ".",
                 precision: 2,
@@ -361,14 +361,12 @@
                             var newValue = $input.val().replace(settings.prefix, "").replace(settings.suffix, "");
                             $input.val(newValue);
                         }
-                        if (!settings.affixesThousands) {
-                          if(settings.thousands === '.') {
+                        if (settings.fixToRailsDecimal) {
+                          if(settings.thousands === '.' && settings.decimal === ',') {
                             var regex = /\./g
-                          }else {
-                            var regex = /settings.thousands/g
+                            var newValue = $input.val().replace(regex, "").replace(',', '.');
+                            $input.val(newValue);
                           }
-                          var newValue = $input.val().replace(regex, "");
-                          $input.val(newValue);
                         }
                     }
                     if ($input.val() !== onFocusValue) {
